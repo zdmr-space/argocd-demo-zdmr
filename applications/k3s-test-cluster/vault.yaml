@@ -9,7 +9,7 @@ spec:
     namespace: vault
   project: default
   source:
-    repoURL: https://github.com/YOUR-USER/argocd-files.git
+    repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
     path: environments/k3s-test-cluster/vault
     targetRevision: HEAD
     helm:

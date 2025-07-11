@@ -9,7 +9,7 @@ spec:
     namespace: argocd
   project: default
   source:
-    repoURL: https://github.com/YOUR-USER/argocd-files.git
+    repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
     path: applications/k3s-test-cluster
     targetRevision: HEAD
     directory:
