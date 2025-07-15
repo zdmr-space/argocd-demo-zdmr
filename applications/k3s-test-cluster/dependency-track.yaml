@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: dependency-track
+  namespace: argocd
+spec:
+  description: Argo CD Project for Dependency-Track inside k3s-test-cluster
+  sourceRepos:
+    - https://github.com/zdmr-space/argocd-demo-zdmr.git
+  destinations:
+    - namespace: dependency-track
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: ""
+      kind: Secret
+    - group: ""
+      kind: ConfigMap
+    - group: ""
+      kind: Service
+    - group: apps
+      kind: Deployment
+    - group: apps
+      kind: StatefulSet
+    - group: networking.k8s.io
+      kind: Ingress
+    - group: batch
+      kind: Job
+    - group: policy
+      kind: PodDisruptionBudget
+    - group: autoscaling
+      kind: HorizontalPodAutoscaler
+  orphanedResources:
+    warn: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dependency-track
+  namespace: argocd
+spec:
+  project: dependency-track
+  source:
+    repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
+    path: environments/k3s-test-cluster/dependency-track
+    targetRevision: HEAD
+  destination:
+    namespace: dependency-track
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

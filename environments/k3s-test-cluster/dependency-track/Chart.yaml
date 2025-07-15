@@ -1,0 +1,7 @@
+apiVersion: v2
+name: dependency-track
+version: 0.34.0
+dependencies:
+  - name: dependency-track
+    version: "0.34.0"
+    repository: https://dependencytrack.github.io/helm-charts
