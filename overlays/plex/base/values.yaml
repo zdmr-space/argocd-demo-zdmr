@@ -4,7 +4,6 @@ service:
 
 ingress:
   enabled: false
-  ingressClassName: "nginx"
 
 pms:
   configStorage: 2Gi
