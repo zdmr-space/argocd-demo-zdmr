@@ -1,10 +1,29 @@
 apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: plex
+  namespace: argocd
+spec:
+  description: Plex Media Server project
+  sourceRepos:
+    - '*'  # Oder spezifisch: https://github.com/zdmr-space/argocd-demo-zdmr.git
+  destinations:
+    - namespace: plex
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
+---
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: plex-zdmr
   namespace: argocd
 spec:
-  project: default
+  project: plex
   source:
     repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
     targetRevision: HEAD
