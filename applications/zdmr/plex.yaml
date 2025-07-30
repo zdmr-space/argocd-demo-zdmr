@@ -28,8 +28,6 @@ spec:
     repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
     targetRevision: HEAD
     path: overlays/plex/zdmr
-    kustomize:
-      valuesFile: values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: plex
