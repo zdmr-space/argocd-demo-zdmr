@@ -3,7 +3,10 @@ kind: Kustomization
 
 helmCharts:
   - name: pms-docker
-    repo: https://charts.example.com
+    repo: https://raw.githubusercontent.com/plexinc/pms-docker/gh-pages
     version: 1.0.0
     releaseName: plex
     namespace: plex
+    valuesFile: values.yaml
+
+resources: []

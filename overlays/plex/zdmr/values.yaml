@@ -1,9 +1,11 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: plex-values
-data:
-  PLEX_CLAIM: "claim-abc123xyz"
-  TZ: "Europe/Berlin"
-  PLEX_UID: "1000"
-  PLEX_GID: "1000"
+service:
+  type: ClusterIP
+
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  url: plex.zdmr.arpa
+
+pms:
+  configStorage: 2Gi
+  storageClassName: local-path
