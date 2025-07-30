@@ -12,5 +12,5 @@ ingress:
       secretName: plex-zdmr-tls
 
 pms:
-  configStorage: 2Gi
+  configStorage: 3Gi
   storageClassName: local-path

@@ -7,5 +7,5 @@ ingress:
   ingressClassName: "nginx"
 
 pms:
-  configStorage: 5Gi
+  configStorage: 2Gi
   storageClassName: local-path
