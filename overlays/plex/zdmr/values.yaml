@@ -4,8 +4,12 @@ service:
 
 ingress:
   enabled: true
-  ingressClassName: nginx
+  ingressClassName: "nginx"
   url: plex.zdmr.arpa
+  tls:
+    - hosts:
+        - plex.zdmr.arpa
+      secretName: plex-zdmr-tls
 
 pms:
   configStorage: 2Gi

@@ -1,0 +1,11 @@
+service:
+  type: ClusterIP
+  port: 32400
+
+ingress:
+  enabled: false
+  ingressClassName: "nginx"
+
+pms:
+  configStorage: 5Gi
+  storageClassName: local-path

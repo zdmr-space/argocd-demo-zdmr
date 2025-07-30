@@ -8,5 +8,3 @@ helmCharts:
     releaseName: plex
     namespace: plex
     valuesFile: values.yaml
-
-resources: []
