@@ -1,0 +1,6 @@
+helmCharts:
+  - name: pms-docker
+    repo: https://charts.example.com
+    version: 1.0.0
+    releaseName: plex
+    namespace: plex
