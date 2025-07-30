@@ -1,5 +1,6 @@
 service:
   type: ClusterIP
+  port: 32400
 
 ingress:
   enabled: true
