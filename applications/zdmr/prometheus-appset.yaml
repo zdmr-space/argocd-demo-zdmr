@@ -30,7 +30,7 @@ spec:
           - overlays/prometheus/values.yaml
           - overlays/prometheus/{{name}}/values.yaml
       destination:
-        server: https://kubernetes.default.svc
+        server: '{{cluster}}'
         namespace: monitoring-{{name}}
       syncPolicy:
         automated:
