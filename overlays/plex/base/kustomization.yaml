@@ -1,0 +1,6 @@
+commonLabels:
+  app: demo
+
+resources:
+- Chart.yaml
+- values.yaml
