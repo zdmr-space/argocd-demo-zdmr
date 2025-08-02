@@ -6,7 +6,3 @@ ingress:
     - hosts:
         - plex.zdmr.arpa
       secretName: plex-zdmr-tls
-
-pms:
-  configStorage: 3Gi
-  storageClassName: local-path
