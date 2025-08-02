@@ -5,15 +5,15 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - list:
-        elements:
-          - name: zdmr
-            cluster: https://kubernetes.default.svc
-    - git:
-        repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
-        revision: HEAD
-        directories:
-          - path: overlays/prometheus/*
+  - list:
+      elements:
+      - name: zdmr
+        cluster: https://kubernetes.default.svc
+  - git:
+      repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
+      revision: HEAD
+      directories:
+      - path: overlays/prometheus/*
   template:
     metadata:
       name: prometheus-{{name}}
@@ -25,8 +25,8 @@ spec:
         targetRevision: 58.3.0
         helm:
           valueFiles:
-            - overlays/prometheus/values.yaml
-            - overlays/prometheus/{{name}}/values.yaml
+          - overlays/prometheus/values.yaml
+          - overlays/prometheus/{{name}}/values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: monitoring-{{name}}
@@ -35,4 +35,4 @@ spec:
           selfHeal: true
           prune: true
         syncOptions:
-          - CreateNamespace=true
+        - CreateNamespace=true
