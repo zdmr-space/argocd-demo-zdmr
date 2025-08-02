@@ -24,12 +24,13 @@ metadata:
   namespace: argocd
 spec:
   project: plex
-  source:
-    plugin:
-      name: helm-kustomize
-    repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
+  sources:
+  - repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
     targetRevision: HEAD
-    path: overlays/plex/zdmr
+    helm:
+      valueFiles:
+      - overlays/plex/zdmr/base.yaml      
+      - overlays/plex/zdmr/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: plex
