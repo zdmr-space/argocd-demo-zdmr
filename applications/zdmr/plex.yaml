@@ -28,11 +28,11 @@ spec:
   - repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
     targetRevision: HEAD
     releaseName: plex
-    path: overlays/plex/Chart   
+    path: overlays/plex/   
     helm:
       valueFiles:
-      - ../base.yaml
-      - ../values-zdmr.yaml
+      - base.yaml
+      - values-zdmr.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: plex

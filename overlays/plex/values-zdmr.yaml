@@ -1,8 +1,8 @@
-ingress:
-  enabled: true
-  ingressClassName: "nginx"
-  url: plex.zdmr.arpa
-  tls:
-    - hosts:
-        - plex.zdmr.arpa
-      secretName: plex-zdmr-tls
+plex-media-server:
+  ingress:
+    enabled: true
+    hosts:
+      - host: plex.zdmr.arpa
+        paths:
+          - path: /
+            pathType: Prefix

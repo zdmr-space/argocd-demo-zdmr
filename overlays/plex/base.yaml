@@ -1,8 +1,17 @@
-service:
-  type: ClusterIP
-  port: 32400
-
-pms:
-  configStorage: 3Gi
-  storageClassName: local-path
-
+plex-media-server:
+  service:
+    type: ClusterIP
+  persistence:
+    config:
+      enabled: true
+      mountPath: /config
+      size: 1Gi
+    data:
+      enabled: true
+      mountPath: /data
+      size: 3Gi
+  pms:
+    resources:
+      limits:
+        memory: 3Gi
+        cpu: 500m
