@@ -5,15 +5,19 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - list:
-      elements:
-      - name: zdmr
-        cluster: https://kubernetes.default.svc
-  - git:
-      repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
-      revision: HEAD
-      directories:
-      - path: overlays/prometheus/*
+  - matrix:
+      generators:
+      - list:
+          elements:
+          - name: zdmr
+            cluster: https://kubernetes.default.svc
+          - name: prod
+            cluster: https://prod-cluster.example.com
+      - git:
+          repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
+          revision: HEAD
+          directories:
+          - path: overlays/prometheus/*
   template:
     metadata:
       name: prometheus-{{name}}
