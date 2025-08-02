@@ -6,7 +6,7 @@ metadata:
 spec:
   description: Plex Media Server project
   sourceRepos:
-    - '*'  # Oder spezifisch: https://github.com/zdmr-space/argocd-demo-zdmr.git
+    - 'https://github.com/zdmr-space/argocd-demo-zdmr.git'
   destinations:
     - namespace: plex
       server: https://kubernetes.default.svc
