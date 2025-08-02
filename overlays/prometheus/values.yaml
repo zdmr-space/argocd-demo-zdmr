@@ -1,6 +1,6 @@
 grafana:
   enabled: true
-  adminPassword: zdmr123
+  adminPassword: prom-operator
   ingress:
     enabled: true
     hosts:

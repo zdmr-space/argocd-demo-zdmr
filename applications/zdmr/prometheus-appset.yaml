@@ -25,6 +25,7 @@ spec:
         repoURL: https://prometheus-community.github.io/helm-charts
         chart: kube-prometheus-stack
         targetRevision: 58.3.0
+        path: charts/prometheus
         helm:
           valueFiles:
           - overlays/prometheus/values.yaml
