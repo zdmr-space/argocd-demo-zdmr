@@ -23,7 +23,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
-        targetRevision: 58.3.0
+        targetRevision: HEAD
         path: charts/prometheus
         helm:
           valueFiles:
