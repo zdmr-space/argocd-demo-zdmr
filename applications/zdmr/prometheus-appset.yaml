@@ -24,11 +24,11 @@ spec:
       source:
         repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
         targetRevision: HEAD
-        path: charts/prometheus
+        path: overlays/prometheus/
         helm:
           valueFiles:
-          - overlays/prometheus/values.yaml
-          - overlays/prometheus/{{name}}/values.yaml
+          - values.yaml
+          - '{{name}}/values.yaml'
       destination:
         server: '{{cluster}}'
         namespace: monitoring-{{name}}
