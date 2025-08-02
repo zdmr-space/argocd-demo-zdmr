@@ -23,7 +23,6 @@ spec:
       project: default
       source:
         repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
-        chart: kube-prometheus-stack
         targetRevision: 58.3.0
         path: charts/prometheus
         helm:
