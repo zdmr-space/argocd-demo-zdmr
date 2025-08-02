@@ -11,8 +11,6 @@ spec:
           elements:
           - name: zdmr
             cluster: https://kubernetes.default.svc
-          - name: prod
-            cluster: https://prod-cluster.example.com
       - git:
           repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
           revision: HEAD
