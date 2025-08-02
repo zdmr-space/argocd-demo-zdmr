@@ -1,0 +1,12 @@
+grafana:
+  enabled: true
+  adminPassword: zdmr123
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.zdmr.arpa
+prometheus:
+  ingress:
+    enabled: true
+    hosts:
+      - prometheus.zdmr.arpa

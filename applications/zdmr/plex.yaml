@@ -28,7 +28,7 @@ spec:
   - repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
     targetRevision: HEAD
     releaseName: plex
-    path: overlays/plex/   
+    path: overlays/plex/zdmr   
     helm:
       valueFiles:
       - base.yaml

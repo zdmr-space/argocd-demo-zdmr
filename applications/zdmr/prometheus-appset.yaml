@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: prometheus-appset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: zdmr
+            cluster: https://kubernetes.default.svc
+    - git:
+        repoURL: https://github.com/zdmr-space/argocd-demo-zdmr.git
+        revision: HEAD
+        directories:
+          - path: overlays/prometheus/*
+  template:
+    metadata:
+      name: prometheus-{{name}}
+    spec:
+      project: default
+      source:
+        repoURL: https://prometheus-community.github.io/helm-charts
+        chart: kube-prometheus-stack
+        targetRevision: 58.3.0
+        helm:
+          valueFiles:
+            - overlays/prometheus/values.yaml
+            - overlays/prometheus/{{path.basename}}/values.yaml
+      destination:
+        server: '{{cluster}}'
+        namespace: monitoring-{{name}}
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true
