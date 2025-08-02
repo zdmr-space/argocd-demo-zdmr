@@ -10,8 +10,5 @@ helmCharts:
   - name: plex-media-server
     repo: https://github.com/plexinc/pms-docker
     version: 1.1.1
-    appVersion: "1.41.9"
     releaseName: plex
-    namespace: plex
     includeCRDs: true
-    valuesFile: values.yaml
