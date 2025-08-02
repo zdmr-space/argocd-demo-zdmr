@@ -26,9 +26,9 @@ spec:
         helm:
           valueFiles:
             - overlays/prometheus/values.yaml
-            - overlays/prometheus/{{path.basename}}/values.yaml
+            - overlays/prometheus/{{name}}/values.yaml
       destination:
-        server: '{{cluster}}'
+        server: https://kubernetes.default.svc
         namespace: monitoring-{{name}}
       syncPolicy:
         automated:
