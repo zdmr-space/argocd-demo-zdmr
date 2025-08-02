@@ -5,7 +5,7 @@ namespace: argocd
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
   - namespace.yaml
-  - Ingress.yaml
+  - ingress.yaml
 
-components:
-  - plugins/argo-cd-helm-kustomize-plugin
+patches:
+  - path: patch-argocd-cm.yaml
