@@ -3,10 +3,42 @@ grafana:
   adminPassword: zdmr123
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-http
     hosts:
       - grafana.zdmr.arpa
+    tls:
+      - hosts:
+          - grafana.zdmr.arpa
+        secretName: grafana-zdmr-tls
+
 prometheus:
   ingress:
     enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-http
     hosts:
       - prometheus.zdmr.arpa
+    paths:
+      - /
+    tls:
+      - hosts:
+          - prometheus.zdmr.arpa
+        secretName: prometheus-zdmr-tls
+
+alertmanager:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      cert-manager.io/cluster-issuer: letsencrypt-http
+    hosts:
+      - alertmanager.zdmr.arpa
+    paths:
+      - /
+    tls:
+      - hosts:
+          - alertmanager.zdmr.arpa
+        secretName: alertmanager-zdmr-tls
