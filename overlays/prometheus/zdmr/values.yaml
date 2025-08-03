@@ -1,40 +1,39 @@
-grafana:
-  enabled: true
-  adminPassword: zdmr123
-  ingress:
-    enabled: true
-    ingressClassName: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    hosts:
-      - grafana.zdmr.arpa
-    paths:
-      - /
-    pathType: Prefix
-    tls: []
+kube-prometheus-stack:
+  grafana:
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      hosts:
+        - grafana.zdmr.arpa
+      paths:
+        - /
+      pathType: Prefix
+      tls: []
 
-prometheus:
-  ingress:
-    enabled: true
-    ingressClassName: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    hosts:
-      - prometheus.zdmr.arpa
-    paths:
-      - /
-    pathType: Prefix
-    tls: []
+  prometheus:
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      hosts:
+        - prometheus.zdmr.arpa
+      paths:
+        - /
+      pathType: Prefix
+      tls: []
 
-alertmanager:
-  ingress:
-    enabled: true
-    ingressClassName: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    hosts:
-      - alertmanager.zdmr.arpa
-    paths:
-      - /
-    pathType: Prefix
-    tls: []
+  alertmanager:
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        nginx.ingress.kubernetes.io/ssl-redirect: "false"
+      hosts:
+        - alertmanager.zdmr.arpa
+      paths:
+        - /
+      pathType: Prefix
+      tls: []
