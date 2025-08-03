@@ -1,3 +1,19 @@
+# ###
+#
+# CRD's muessen installiert werden.
+#
+# prometheusOperator:
+#  crds:
+#    enabled: false
+#
+# for crd in alertmanagers prometheuses prometheusagents thanosrulers; do
+#  curl -s https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/main/example/prometheus-operator-crd/monitoring.coreos.com_${crd}.yaml \
+#    | yq 'del(.metadata.annotations)' \
+#    | kubectl apply -f -
+# done
+#
+# ###
+
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
