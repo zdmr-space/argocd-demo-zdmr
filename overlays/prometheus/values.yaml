@@ -1,67 +1,5 @@
-crds:
-  enabled: false
+kube-prometheus-stack:
 
-grafana:
-  enabled: true
-  adminPassword: admin
-  persistence:
-    enabled: true
-    size: 1Gi
-  resources:
-    limits:
-      cpu: 200m
-      memory: 512Mi
-    requests:
-      cpu: 100m
-      memory: 256Mi
-  ingress:
-    enabled: true
-    hosts:
-      - grafana.zdmr.arpa
-
-prometheus:
-  prometheusSpec:
-    retention: 24h
-    retentionSize: "3GiB"
-    enableAdminAPI: false
-    replicas: 1
-    scrapeInterval: 30s
-    evaluationInterval: 30s
-    resources:
-      limits:
-        cpu: 500m
-        memory: 1.5Gi
-      requests:
-        cpu: 250m
-        memory: 1Gi
-    storageSpec:
-      volumeClaimTemplate:
-        spec:
-          accessModes: ["ReadWriteOnce"]
-          resources:
-            requests:
-              storage: 4Gi
-  ingress:
-    enabled: true
-    hosts:
-      - prometheus.zdmr.arpa
-
-alertmanager:
-  enabled: false
-
-kube-state-metrics:
-  enabled: false
-
-nodeExporter:
-  resources:
-    limits:
-      cpu: 100m
-      memory: 128Mi
-    requests:
-      cpu: 50m
-      memory: 64Mi
-
-prometheusOperator:
   resources:
     limits:
       cpu: 100m
@@ -71,3 +9,60 @@ prometheusOperator:
       memory: 128Mi
   crds:
     enabled: false
+
+  grafana:
+    enabled: true
+    adminPassword: admin
+    persistence:
+      enabled: true
+      size: 1Gi
+    resources:
+      limits:
+        cpu: 200m
+        memory: 512Mi
+      requests:
+        cpu: 100m
+        memory: 256Mi
+    ingress:
+      enabled: true
+      hosts:
+        - grafana.zdmr.arpa
+
+  prometheus:
+    prometheusSpec:
+      retention: 24h
+      retentionSize: "3GiB"
+      enableAdminAPI: false
+      replicas: 1
+      scrapeInterval: 30s
+      evaluationInterval: 30s
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1.5Gi
+        requests:
+          cpu: 250m
+          memory: 1Gi
+      storageSpec:
+        volumeClaimTemplate:
+          spec:
+            accessModes: ["ReadWriteOnce"]
+            resources:
+              requests:
+                storage: 4Gi
+    ingress:
+      enabled: true
+      hosts:
+        - prometheus.zdmr.arpa
+
+  alertmanager:
+    enabled: false
+
+  nodeExporter:
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 50m
+        memory: 64Mi
