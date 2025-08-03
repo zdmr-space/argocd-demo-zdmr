@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: grafana
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: grafana
+  namespaceSelector:
+    matchNames:
+      - monitoring-zdmr
+  endpoints:
+    - port: http-web
+      interval: 30s
